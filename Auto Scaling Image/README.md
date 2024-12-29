@@ -1,9 +1,9 @@
-<div style="text-align:center;" id="readme-top">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+<div align="center" id="readme-top">
+  <a align="center" href="https://github.com/othneildrew/Best-README-Template">
     <img src="https://cdn-icons-png.flaticon.com/512/4429/4429903.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 style="color: red;">Auto Scaling Image Tool</h3>
+  <h3 align="center" style="color: red;">Auto Scaling Image Tool</h3>
 
   <p align="center">
     🖼️A great automatic image enhancement tool🖼️
