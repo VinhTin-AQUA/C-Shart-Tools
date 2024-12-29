@@ -10,9 +10,7 @@
     <br />
     <a href="./Scale/">Source code</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Download</a>
+    <a href="#demo">Demo</a>
   </p>
 </div>
 
