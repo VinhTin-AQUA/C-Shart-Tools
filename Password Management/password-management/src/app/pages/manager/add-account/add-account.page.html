@@ -1,0 +1,159 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start" class="text-xl cursor-pointer">
+            <ion-button [routerLink]="['/manager/home']" class="text-xl">
+                <ion-icon
+                    name="arrow-back-outline"
+                    class="text-[var(--toolbar-text)]"
+                ></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title class="text-center">
+            <span class="text-[var(--toolbar-text)]">Add account</span>
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <ion-menu-button class="text-[var(--toolbar-text)]"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <!-- <div class="p-2 bg-[var(--content-bg-2)]"> -->
+        <div class="flex justify-center">
+            <div class="image-container">
+                <img [src]="selectedIconUrl" alt="" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="block font-medium text-[var(--content-text)]"
+                >Icon <span class="text-red-600 font-bold">*</span></label
+            >
+
+            <div id="icon" class="flex flex-row gap-1 overflow-x-auto py-2">
+                @for (item of icons; track $index) { @if(selectedIconUrl ===
+                item.url) {
+                <button
+                    (click)="onChangeSelectedUrl(item.url)"
+                    class="bg-[#ee8585] rounded-xl inline-block min-w-24 min-h-24 max-w-24 max-h-24 select-none hover:bg-[#ee8585]"
+                >
+                    <div
+                        class="flex flex-col justify-center items-center h-full"
+                    >
+                        <img class="w-10 mx-auto" [src]="item.url" alt="" />
+                        <p class="text-center">{{item.name}}</p>
+                    </div>
+                </button>
+                } @else {
+                <button
+                    (click)="onChangeSelectedUrl(item.url)"
+                    class="bg-[#fee2e2] rounded-xl inline-block min-w-24 min-h-24 max-w-24 max-h-24 select-none hover:bg-[#ee8585]"
+                >
+                    <div
+                        class="flex flex-col justify-center items-center h-full"
+                    >
+                        <img class="w-10 mx-auto" [src]="item.url" alt="" />
+                        <p class="text-center">{{item.name}}</p>
+                    </div>
+                </button>
+                } }
+            </div>
+        </div>
+
+        <form [formGroup]="form" class="mb-3">
+            <div class="">
+                <div class="mb-3">
+                    <label class="block font-medium text-[var(--content-text)]"
+                        >Name
+                        <span class="text-red-600 font-bold">*</span></label
+                    >
+                    <input
+                        formControlName="name"
+                        type="text"
+                        id="name"
+                        class="text-[var(--input-text)] bg-[var(--input-bg)] border border-[var(--input-border)] rounded-lg block w-full p-2.5"
+                        placeholder="google, facebook,..."
+                        required
+                    />
+                    @if(submitted === true && form.hasError('required','name'))
+                    { <small class="text-red-500">Name is required</small>}
+                </div>
+
+                <div class="mb-3">
+                    <label class="block font-medium text-[var(--content-text)]"
+                        >User name
+                        <span class="text-red-600 font-bold">*</span></label
+                    >
+                    <input
+                        formControlName="userName"
+                        type="text"
+                        id="user-name"
+                        class="text-[var(--input-text)] bg-[var(--input-bg)] border border-[var(--input-border)] rounded-lg block w-full p-2.5"
+                        placeholder="abcdef"
+                        required
+                    />
+                    @if(submitted === true &&
+                    form.hasError('required','userName')) {
+                    <small class="text-red-500">User name is required</small>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label class="block font-medium text-[var(--content-text)]"
+                        >Password
+                        <span class="text-red-600 font-bold">*</span></label
+                    >
+                    <app-input-password
+                        formControlName="password"
+                    ></app-input-password>
+                    @if(submitted === true &&
+                    form.hasError('required','password')) {
+                    <small class="text-red-500">Password is required</small>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label class="block font-medium text-[var(--content-text)]"
+                        >Confirm password
+                        <span class="text-red-600 font-bold">*</span></label
+                    >
+
+                    <app-input-password formControlName="confirmPassword"></app-input-password>
+                    @if(submitted === true &&
+                    form.hasError('required','confirmPassword')) {
+                    <small class="text-red-500"
+                        >Confirm password is required</small
+                    >
+                    } @else if(submitted === true && form.controls['password'].value !==
+                    form.controls['confirmPassword'].value){
+                    <small class="text-red-500"
+                        >Confirm password is not valid</small
+                    >
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="block font-medium text-[var(--content-text)]"
+                        >Note</label
+                    >
+                    <textarea
+                        formControlName="note"
+                        id="message"
+                        rows="4"
+                        class="text-[var(--input-text)] block p-2.5 w-full text-sm bg-[var(--input-bg)] rounded-lg border border-[var(--input-border)]"
+                        placeholder="write your thoughts here..."
+                    ></textarea>
+                </div>
+            </div>
+
+            <button
+                (click)="save()"
+                class="mt-3 text-[var(--btn-text)] bg-[var(--btn-bg)] font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center active:bg-[--btn-bg-hover] duration-150"
+            >
+                Save
+            </button>
+        </form>
+    <!-- </div> -->
+</ion-content>

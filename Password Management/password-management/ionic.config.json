@@ -1,0 +1,7 @@
+{
+  "name": "password-management",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

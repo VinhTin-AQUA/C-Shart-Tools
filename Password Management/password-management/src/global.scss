@@ -1,0 +1,123 @@
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+//  @import "@ionic/angular/css/palettes/dark.always.css";
+// @import "@ionic/angular/css/palettes/dark.class.css";
+// @import '@ionic/angular/css/palettes/dark.system.css';
+
+.theme-light {
+    // content
+    --content-bg-1: #2563eb;
+    --content-bg-2: #ffffff;
+    --content-text: #000000;
+
+    // toolbar
+    --toolbar-bg: #2563eb;
+    --toolbar-text: #ffffff;
+
+    // side menu
+    --side-menu-bg: #ffffff;
+
+    // search bar
+    --search-bar-text: #ffffff;
+    --search-bar-bg: #2563eb;
+
+    // account list
+    --account-list-item-text: #2563eb;
+    --account-list-item-bg: #ffffff;
+    --account-list-item-hover: #bae6fd;
+    --account-list-item-selected: #fff;
+
+    // button
+    --btn-bg: #2563eb;
+    --btn-bg-hover: #1e40af;
+    --btn-text: #ffffff;
+
+    // input
+    --input-text: #0f172a;
+    --input-bg: white;
+    --input-border: #cbd5e1;
+    --input-border-focus: #0f172a;
+}
+
+.theme-dark {
+    // content
+    --content-bg-1: #0f172a;
+    --content-bg-2: #374151;
+    --content-text: #fff;
+
+    // toolbar
+    --toolbar-bg: #0f172a;
+    --toolbar-text: #ffffff;
+
+    // side menu
+    --side-menu-bg: #0f172a;
+
+    // search bar
+    --search-bar-text: #ffffff;
+    --search-bar-bg: #0f172a;
+
+    // account list
+    --account-list-item-text: #2563eb;
+    --account-list-item-bg: #0f172a;
+    --account-list-item-hover: #fff;
+    --account-list-item-selected: #f8fafc;
+
+    // button
+    --btn-bg: #2563eb;
+    --btn-bg-hover: #1e40af;
+    --btn-text: #ffffff;
+
+    // input
+    --input-text: white;
+    --input-bg: #0f172a;
+    --input-border: #0f172a;
+    --input-border-focus:  #cbd5e1;
+}
+
+html {
+    --ion-safe-area-left: 25px;
+}
+
+ion-modal {
+    --ion-safe-area-top: 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    overflow-x: hidden;
+    margin: 0 auto;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

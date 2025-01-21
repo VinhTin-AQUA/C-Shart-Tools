@@ -1,0 +1,77 @@
+<div class="h-full w-full">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-title>
+                <div class="flex justify-center items-center">
+                    <!-- <img src="/assets/logo.png" alt="Logo" style="height: 40px" /> -->
+                    <ion-searchbar
+                        class="text-[var(--search-bar-text)]"
+                        placeholder="Search your account..."
+                    ></ion-searchbar>
+                </div>
+            </ion-title>
+
+            <ion-buttons slot="end">
+                <ion-menu-button class="text-[var(--btn-text)]"></ion-menu-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+            <div class="bg-[var(--content-bg-2)] rounded-t-2xl p-2">
+                <ion-list lines="none" class="bg-[var(--content-bg-2)] pb-[100px]">
+                    <ion-list-header class="font-bold ps-5">
+                        <ion-label class="text-2xl text-[var(--content-text)]">Accounts</ion-label>
+                    </ion-list-header>
+
+                    @for (item of listAccounts; track $index) {
+                    <ion-item
+                        [routerLink]="'/manager/edit-account/' + item.id"
+                        class="cursor-pointer rounded-md border max-h-[50px] mb-1"
+                    >
+                        <div class="flex items-center justify-between w-dvw">
+                            <div class="flex items-center justify-start gap-3">
+                                <img [src]="item.icon" class="max-h-[30px]" />
+                                <ion-label>{{item.name}}</ion-label>
+                            </div>
+                        </div>
+                    </ion-item>
+                    }
+                </ion-list>
+
+            </div>
+    </ion-content>
+
+    <div class="fixed bottom-0 left-0 w-full m-0">
+        <div class="bg-[var(--content-bg-2)] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+            <div class="flex items-center justify-between p-2">
+                <a
+                    routerLink="/"
+                    class="text-[var(--btn-text)] bg-[--btn-bg] hover:bg-[var(--btn-bg-hover)] w-10 h-10 rounded-full flex items-center justify-center"
+                >
+                    <ion-icon name="home"></ion-icon>
+                </a>
+
+                <div
+                    class="w-14 h-14 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[var(--content-bg-2)] z-10 p-2 rounded-full"
+                >
+                    <a
+                        routerLink="/manager/add-account"
+                        type="button"
+                        class="text-[var(--btn-text)] bg-[--btn-bg] hover:bg-[var(--btn-bg-hover)] flex items-center justify-center w-10 h-10 rounded-full"
+                    >
+                        <ion-icon name="add-circle"></ion-icon>
+                    </a>
+                </div>
+
+                <a
+                    routerLink="/manager/settings"
+                    type="button"
+                    class="text-[var(--btn-text)] bg-[--btn-bg] hover:bg-[var(--btn-bg-hover)] w-10 h-10 rounded-full flex items-center justify-center"
+                >
+                    <ion-icon name="settings"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

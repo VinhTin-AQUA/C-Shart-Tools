@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start" class="text-xl cursor-pointer">
+            <ion-button [routerLink]="['/manager/home']" class="text-xl">
+                <ion-icon
+                    name="arrow-back-outline"
+                    class="text-[var(--btn-text)]"
+                ></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title class="text-center">
+            <span class="text-[var(--toolbar-text)]">Settings</span>
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <ion-menu-button class="text-[var(--btn-text)]"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="m-0">
+    <div class="h-full p-4 bg-[var(--content-bg-2)]">
+        <!-- theme -->
+        <div class="bg-[var(--content-bg-2)] text-[var(--content-text)] p-3 rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_2px_3px]">
+            <div>App Theme</div>
+
+            <div>
+                @for (item of themes; track $index) {
+                <div class="text-[var(--content-text)] flex items-center justify-between border-b py-2">
+                    <span class="text-xl">{{item.name}}</span>
+                    <ion-toggle
+                        (ionChange)="onToggleChange($index, $event, item.name)"
+                        [color]="item.color"
+                        [checked]="item.activate"
+                    ></ion-toggle>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</ion-content>

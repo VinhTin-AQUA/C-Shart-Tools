@@ -1,0 +1,48 @@
+<div class="fixed top-0 left-0 w-dvw h-dvh">
+    <div class="h-dvh flex items-center justify-center p-3 bg-gray-200/40">
+        @if(noticeStore.success()) {
+        <div
+            class="py-10 bg-green-200 rounded-xl w-full p-3 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+        >
+            <div class="text-[3rem] text-center text-green-600">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+            <div class="text-green-500 font-bold text-2xl text-center">
+                Success
+            </div>
+
+            <div class="text-center text-[1rem] text-green-500">
+                <small>{{ noticeStore.message() }}</small>
+            </div>
+
+            <button
+                (click)="onClose()"
+                type="button"
+                class="text-white bg-green-500 hover:bg-green-800 font-medium rounded-full text-sm px-5 py-2.5 w-full"
+            >
+                Close
+            </button>
+        </div>
+        } @else {
+        <div
+            class="py-10 bg-red-200 rounded-xl w-full p-3 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+        >
+            <div class="text-[3rem] text-center text-red-600">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+            <div class="text-red-500 font-bold text-2xl text-center">Error</div>
+
+            <div class="text-center text-[1rem] text-red-500">
+                <small>{{ noticeStore.message() }}</small>
+            </div>
+            <button
+                (click)="onClose()"
+                type="button"
+                class="text-white bg-red-500 hover:bg-red-800 font-medium rounded-full text-sm px-5 py-2.5 w-full"
+            >
+                Close
+            </button>
+        </div>
+        }
+    </div>
+</div>

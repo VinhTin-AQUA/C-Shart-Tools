@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true" class="m-0">
+    <div class="flex items-center justify-center h-full">
+        <div>
+            <div class="mb-3">
+                <img class="mx-auto" src="/assets/logo.png" alt="" />
+            </div>
+
+            <div class="max-w-sm mx-auto">
+                <div class="mb-5">
+                    <label
+                        class="text-center block mb-2 font-medium text-[var(--content-text)]"
+                        >Enter password</label
+                    >
+                    <input
+                        [(ngModel)]="password"
+                        type="password"
+                        id="password"
+                        class="bg-[var(--input-bg)] border border-[var(--input-border)] border-gray-300 text-[var(--input-text)] rounded-lg block w-full p-2.5"
+                        placeholder="*******"
+                    />
+
+                    @if (check === false) {
+                    <small class="text-red-500">Wrong password</small>
+                    }
+                </div>
+
+                <button
+                    (click)="login()"
+                    type="submit"
+                    class="mb-2 text-[var(--btn-text)] bg-[var(--btn-bg)] hover:bg-[var(--btn-bg-hover)] font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                >
+                    Submit
+                </button>
+
+                <button
+                    (click)="useFingerPrint()"
+                    type="submit"
+                    class="text-[var(--btn-text)] bg-[var(--btn-bg)] hover:bg-[var(--btn-bg-hover)] font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                >
+                    User finger print
+                </button>
+            </div>
+        </div>
+    </div>
+</ion-content>
